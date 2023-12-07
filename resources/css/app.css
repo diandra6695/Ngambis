@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.loader {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: 
+      radial-gradient(farthest-side,#010406 94%,#0000) top/8px 8px no-repeat,
+      conic-gradient(#0000 30%,#010406);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation:s3 1s infinite linear;
+  }
+  
+  @keyframes s3{ 
+    100%{transform: rotate(1turn)}
+  }
+
+  input {
+    outline: none;
+  border:none;
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; 
+  --tw-ring-shadow: 0 0 #000 !important;
+}
+
+input[type = text]:focus {
+  outline: none;
+  border: none;
+  --tw-ring-shadow: 0 0 #000 !important;
+}
+input[type = text]:active {
+  outline: none;
+  border: none;
+}
