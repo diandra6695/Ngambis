@@ -13,6 +13,7 @@ import {
 } from "@nextui-org/react";
 
 const Menu = (props) => {
+    console.log(props);
     return (
         <Navbar
             shouldHideOnScroll
@@ -58,9 +59,18 @@ const Menu = (props) => {
                             <Link
                                 className=" text-sm"
                                 color="foreground"
-                                href={route("blog")}
+                                href={route("blog.home")}
                             >
-                                Artikel
+                                Blog
+                            </Link>
+                        </NavbarItem>
+                        <NavbarItem>
+                            <Link
+                                className=" text-sm"
+                                color="foreground"
+                                href={route("about")}
+                            >
+                                About
                             </Link>
                         </NavbarItem>
                         <NavbarItem>
@@ -97,9 +107,9 @@ const Menu = (props) => {
                             <Link
                                 className=" text-sm"
                                 color="foreground"
-                                href={route("blog")}
+                                href={route("blog.home")}
                             >
-                                Artikel
+                                Blog
                             </Link>
                         </NavbarItem>
                     </>

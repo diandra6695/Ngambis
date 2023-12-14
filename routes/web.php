@@ -13,6 +13,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use function Termwind\render;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,14 +29,19 @@ use Inertia\Inertia;
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/home/matematika', [MatematikaController::class, 'index'])->name('materi.matematika');
-Route::get('/home/bahasajawa', [BahasaJawaController::class, 'index'])->name('materi.bahasajawa');
 Route::get('/home/bahasaIndonesia', [BahasaIndonesiaController::class, 'index'])->name('materi.bahasaIndonesia');
 Route::get('/home/bahasaInggris', [BahasaInggrisController::class, 'index'])->name('materi.bahasaInggris');
 Route::get('/home/sejarah', [SejarahController::class, 'index'])->name('materi.sejarah');
+Route::get('/home/bahasajawa', [BahasaJawaController::class, 'index'])->name('materi.bahasajawa');
 Route::get('/home/bahasajawa/kamus', [BahasaJawaController::class, 'kamus'])->name('materi.bahasajawa.kamus');
+Route::get('/home/bahasaIndonesia/kamus', [BahasaJawaController::class, 'latinToJawa'])->name('materi.bahasajawa.latinToJawa');
 Route::get('/home/matematika', [MatematikaController::class, 'index'])->name('materi.matematika');
-Route::get('blog/detail/{slug}', [BlogController::class, 'detail'])->name('detail');
-Route::get('home/blog/detail/{slug}', [BlogController::class, 'detailHome'])->name('detail.home');
+Route::get('/blog/{slug}', [BlogController::class, 'detail'])->name('detail');
+Route::get('/home/blog/{slug}', [BlogController::class, 'detailHome'])->name('detail.home');
+Route::get('/blog', [BlogController::class, 'blog'])->name('blog.home');
+Route::get('/about', function () {
+    return Inertia::render('About');
+})->name('about');
 
 Route::get('/home/blog', function () {
     return Inertia::render('Blog');
@@ -42,9 +49,7 @@ Route::get('/home/blog', function () {
 
 Route::get('/', [LandingController::class, 'index'])->name('index');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [BlogController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

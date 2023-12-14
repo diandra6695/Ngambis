@@ -12,7 +12,7 @@ class BahasaInggrisController extends Controller
     {
         $blog = Blog::where('kategori', 'Materi')->where('mapel', 'Bahasa Inggris')->orderBy('id', 'desc')->get();
         return Inertia::render('BahasaInggris', [
-            'page' => 'Bahasa Indonesia',
+            'head' => 'Bahasa Inggris',
             'artikel' => $blog,
         ]);
     }

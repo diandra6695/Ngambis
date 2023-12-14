@@ -15,15 +15,8 @@ const isArtikel = (artikel) => {
     return artikel.map((data, i) => {
         const tanggalUTC = new Date(data.created_at);
         return (
-            <Link
-                href={
-                    data.kategori == "Materi"
-                        ? `/home/blog/${data.slug}`
-                        : `/blog/${data.slug}`
-                }
-                key={i}
-            >
-                <Card className="w-[26rem] hover:shadow-xl shadow-lg transition-all cursor-pointer bg-white">
+            <Link href={`/home/blog/${data.slug}`} key={i}>
+                <Card className="w-[26rem] hover:shadow-xl transition-all cursor-pointer bg-white">
                     <CardBody>
                         <Image
                             isBlurred
@@ -56,8 +49,7 @@ const noArtikel = () => {
 };
 
 const CardBlog = ({ artikel }) => {
-    const cekArtikel = artikel[0];
-    return !cekArtikel ? noArtikel() : isArtikel(artikel);
+    return !artikel ? noArtikel() : isArtikel(artikel);
 };
 
 export default CardBlog;

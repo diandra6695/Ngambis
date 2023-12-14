@@ -22,4 +22,10 @@ class BahasaJawaController extends Controller
             'page' => 'Kamus Bahasa Jawa',
         ]);
     }
+    public function latinToJawa()
+    {
+        return Inertia::render('LatinToJawa', [
+            'page' => 'Latin - Aksara Jawa',
+        ]);
+    }
 }

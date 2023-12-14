@@ -13,6 +13,7 @@ class MatematikaController extends Controller
         $blog = Blog::where('kategori', 'Materi')->where('mapel', 'Matematika')->orderBy('id', 'desc')->get();
         return Inertia::render('Matematika', [
             'artikel' => $blog,
+            'head' => 'Matematika',
         ]);
     }
 }

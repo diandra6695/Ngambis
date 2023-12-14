@@ -6,12 +6,12 @@ const Footer = (props) => {
     return (
         <section id="kontak">
             <div className="my-10">
-                <div className=" border-t-2 flex flex-col gap-8">
+                <div className=" border-t-2 flex flex-col gap-8 bg-color-gray p-8 text-white rounded-[2.5rem]">
                     <div className="content mt-10 flex justify-between text-sm">
                         <div className="">
                             <img
                                 className="w-28"
-                                src="../../../assets/img/logo.svg"
+                                src="../../../assets/img/logoPutih.svg"
                             />
                         </div>
                         <div className="list-none flex flex-col gap-2">
@@ -39,16 +39,16 @@ const Footer = (props) => {
                                 Hubungi Kami
                             </header>
                             <li>
-                                <a href="" className="flex items-center gap-1">
-                                    <span className="bg-color-blue rounded-full p-1">
+                                <a href="" className="flex items-center gap-2 ">
+                                    <span className="bg-white rounded-full text-black p-1">
                                         <EnvelopeSimple size={20} />
                                     </span>{" "}
                                     support@ngambis.com
                                 </a>
                             </li>
                             <li>
-                                <a href="" className="flex items-center gap-1">
-                                    <span className="bg-color-blue rounded-full p-1">
+                                <a href="" className="flex items-center gap-2">
+                                    <span className="bg-white rounded-full text-black p-1">
                                         <Phone size={20} />
                                     </span>{" "}
                                     +62 812-2980-0145
@@ -57,9 +57,7 @@ const Footer = (props) => {
                         </div>
                     </div>
                     <div className="flex justify-center text-sm">
-                        <p>
-                            &copy; {year} {props.nama} | All right reserved
-                        </p>
+                        <p>&copy; {year} Ngambis | All right reserved</p>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+import BackButton from "@/Components/BackButton";
 import CardBlog from "@/Components/CardBlog";
 import Header from "@/Components/Header";
 import Footer from "@/Components/LandingPage/Footer";
@@ -10,24 +11,13 @@ const BahasaIndonesia = (props) => {
     const data = props.artikel;
     return (
         <>
-            <Head title={props.page} auth={props.auth} />
-            <Menu home={true} />
+            <Head title={props.head} />
+            <Menu home={true} auth={props.auth} />
             <div className="container mx-auto mt-20">
+                <BackButton />
                 <Header text="Tense Bahasa Inggris" />
                 <div className="content grid grid-cols-3 gap-4 mt-5">
-                    {data.map((data, i) => {
-                        return (
-                            <CardBlog
-                                key={i}
-                                title={data.title}
-                                slug={data.slug}
-                                img={data.image}
-                                author={data.author}
-                                kategori={data.kategori}
-                                mapel={data.mapel}
-                            />
-                        );
-                    })}
+                    <CardBlog artikel={data} />
                 </div>
                 <Footer />
             </div>

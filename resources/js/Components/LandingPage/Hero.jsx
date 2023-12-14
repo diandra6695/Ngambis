@@ -5,7 +5,7 @@ import { Link } from "@inertiajs/react";
 const Hero = () => {
     return (
         <section id="home" className="w-full pt-20">
-            <div className="rounded-3xl w-full p-16 bg-color-second flex justify-center gap-10 items-center">
+            <div className="rounded-[2.5rem] w-full p-16 bg-color-second flex justify-center gap-10 items-center">
                 <div className="descriptions max-w-xl flex flex-col gap-5 text-color-primary">
                     <div className="header text-4xl font-black">
                         <h3>

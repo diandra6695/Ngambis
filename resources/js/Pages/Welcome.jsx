@@ -14,12 +14,12 @@ export default function Welcome(props) {
     return (
         <NextUIProvider>
             <div className="bg-color-bg">
-                <Head />
+                <Head title="Welcome" />
                 <Menu home={false} auth={props.auth} />
                 <div className="container mx-auto">
                     <Hero />
                     <ListMateri title="testing" />
-                    <Article artikel={props.artikel} />
+                    <Article artikel={props.artikel} home={false} />
                     <Footer nama="Ngambis" />
                 </div>
             </div>

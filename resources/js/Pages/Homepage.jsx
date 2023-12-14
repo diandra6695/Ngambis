@@ -39,7 +39,7 @@ const Homepage = (props) => {
     if (loading) {
         return (
             <div className="h-screen w-full flex justify-center items-center">
-                <div class="loader"></div>
+                <div className="loader"></div>
             </div>
         );
     }
@@ -50,6 +50,7 @@ const Homepage = (props) => {
     return (
         <>
             <NextUIProvider>
+                <Head title={props.head} />
                 <Menu home={true} auth={props.auth} />
                 <div className="container mx-auto">
                     <Banner />
@@ -60,7 +61,7 @@ const Homepage = (props) => {
                         aria-label="Loading..."
                     />
                     <Info data={data} />
-                    <Article artikel={props.artikel} />
+                    <Article artikel={props.artikel} home={true} />
                     <Footer />
                 </div>
             </NextUIProvider>

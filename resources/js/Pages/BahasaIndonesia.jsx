@@ -1,3 +1,4 @@
+import BackButton from "@/Components/BackButton";
 import CardBlog from "@/Components/CardBlog";
 import Header from "@/Components/Header";
 import Footer from "@/Components/LandingPage/Footer";
@@ -13,26 +14,15 @@ const BahasaIndonesia = (props) => {
             <Head title={props.page} />
             <Menu home={true} auth={props.auth} />
             <div className="container mx-auto mt-20">
+                <BackButton />
                 <Header text="Materi bahasa Indonesia" />
                 <div className="content grid grid-cols-3 gap-4 mt-5">
-                    {data.map((data, i) => {
-                        return (
-                            <CardBlog
-                                key={i}
-                                title={data.title}
-                                slug={data.slug}
-                                img={data.image}
-                                author={data.author}
-                                kategori={data.kategori}
-                                mapel={data.mapel}
-                            />
-                        );
-                    })}
+                    <CardBlog artikel={data} />
                 </div>
                 <div className="mt-5">
                     <Header text="Fitur keren lainya" />
                 </div>
-                <Link href={route("materi.bahasajawa.kamus")}>
+                <Link href={route("materi.bahasajawa.latinToJawa")}>
                     <Card className="bg-color-primary w-56 p-2 hover:shadow-xl transition-all">
                         <CardBody>
                             <div className="flex items-center gap-2 text-color-bg">

@@ -25,6 +25,7 @@
         "@nextui-org/system": "^2.0.15",
         "@nextui-org/theme": "^2.1.17",
         "@phosphor-icons/react": "^2.0.15",
-        "framer-motion": "^10.16.5"
+        "framer-motion": "^10.16.5",
+        "react-router-dom": "^6.20.1"
     }
 }

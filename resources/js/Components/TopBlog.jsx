@@ -1,5 +1,5 @@
 import { Link } from "@inertiajs/react";
-import { Card, CardBody, Image, CardFooter, Chip } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Chip, Image } from "@nextui-org/react";
 function formatDateIndonesia(tanggal) {
     const options = {
         year: "numeric",
@@ -10,24 +10,25 @@ function formatDateIndonesia(tanggal) {
 
     return tanggal.toLocaleDateString("id-ID", options);
 }
-
-const isArtikel = (artikel) => {
-    return artikel.map((data, i) => {
-        const tanggalUTC = new Date(data.created_at);
-        return (
+const TopBlog = (props) => {
+    console.log(props);
+    const data = props.data.firstArtikel[0];
+    const tanggalUTC = new Date(data.created_at);
+    return (
+        <div className="mb-10">
             <Link
+                className="w-[40rem]"
                 href={
                     data.kategori == "Materi"
                         ? `/home/blog/${data.slug}`
                         : `/blog/${data.slug}`
                 }
-                key={i}
             >
-                <Card className="w-[26rem] hover:shadow-xl shadow-lg transition-all cursor-pointer bg-white">
+                <Card className="w-[40rem] hover:shadow-xl shadow-lg transition-all cursor-pointer bg-white">
                     <CardBody>
                         <Image
                             isBlurred
-                            className="rounded-3xl w-[26rem] h-60 object-cover"
+                            className="rounded-3xl w-[40rem] h-96 object-cover"
                             alt="artikel"
                             src={`../../../storage/artikel/${data.image}`}
                         />
@@ -47,17 +48,8 @@ const isArtikel = (artikel) => {
                     </CardFooter>
                 </Card>
             </Link>
-        );
-    });
+            <div className=""></div>
+        </div>
+    );
 };
-
-const noArtikel = () => {
-    return <div>saat ini belum ada artikel tersedia</div>;
-};
-
-const CardBlog = ({ artikel }) => {
-    const cekArtikel = artikel[0];
-    return !cekArtikel ? noArtikel() : isArtikel(artikel);
-};
-
-export default CardBlog;
+export default TopBlog;

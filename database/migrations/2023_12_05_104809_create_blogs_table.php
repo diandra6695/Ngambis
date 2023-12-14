@@ -18,8 +18,10 @@ return new class extends Migration
             $table->text('description');
             $table->string('image')->nullable();
             $table->string('slug')->nullable();
-            $table->string('kategori')->references('kategori')->on('kategori')->onDelete('cascade');
-            $table->string('mapel')->references('mapel')->on('mapel')->onDelete('cascade');
+            $table->string('kategori')->references('kategori')->on('kategoris')->onDelete('cascade');
+            // $table->foreign('kategori')->references('kategori')->on('kategoris')->onDelete('cascade');
+            $table->string('mapel')->references('mapel')->on('mapels')->onDelete('cascade');
+            // $table->foreign('mapel')->references('mapel')->on('mapels')->onDelete('cascade');
             $table->timestamps();
         });
     }
